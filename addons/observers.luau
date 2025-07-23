@@ -77,20 +77,20 @@ local function observers_new(
 	for _, term in terms do
 		world:added(term, emplaced)
 		world:changed(term, emplaced)
- 	end
+	end
 
-  	return function()
-  		local row = i
-  		return function()
- 			if row == 0 then
-     			i = 0
-	      		table.clear(entities)
-      		end
-           	local entity = entities[row]
-           	row -= 1
-           	return entity
+	return function()
+		local row = i
+		return function()
+			if row == 0 then
+				i = 0
+				table.clear(entities)
+			end
+			local entity = entities[row]
+			row -= 1
+			return entity
 		end
-    end
+	end
 end
 
 local function join(world, component)
